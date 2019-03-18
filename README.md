@@ -1,7 +1,8 @@
 # HDM-toolbox
-Spinoff toolbox from SPM for fitting and comparing single region haemodynamic models (HDMs).
+Spinoff toolbox from SPM for developing, fitting and comparing single region haemodynamic models (HDMs).
 
-NB: This work is unpublished.
+NB 1: This is intended for situations where only a single brain region is being modelled. If data from multiple regions are available, then DCM is recommended (which has both hidden neural and haemodynamic states).
+NB 2: This work is unpublished.
 
 ## Instructions for running the demo
 1. Download the toolbox and add the 'toolbox' directory to your Matlab path.
