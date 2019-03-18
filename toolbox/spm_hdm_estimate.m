@@ -6,7 +6,7 @@ U = HDM.U;
 Y = HDM.Y;
 
 % Estimate
-[Ep,Cp,Eh,F] = spm_nlsi(M,U,Y);
+[Ep,Cp,Eh,F] = spm_nlsi_GN(M,U,Y);
 
 % prediction and residuals
 y      = feval(M.IS,Ep,M,U);

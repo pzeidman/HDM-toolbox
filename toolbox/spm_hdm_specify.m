@@ -8,7 +8,9 @@ function HDM = spm_hdm_specify(SPM,xY,u_idx,options)
 
 % unpack options
 %--------------------------------------------------------------------------
-TE = options.TE;
+try delays = options.delays; catch, delays = []; end
+try TE = options.TE; catch, TE = 0.04; end
+try priorfun = options.priorfun; catch, priorfun = @spm_hdm_priors_hdm2; end
 
 % prepare inputs
 %--------------------------------------------------------------------------
@@ -35,7 +37,8 @@ Y.X0   = xY.X0;
 % priors and default values
 %--------------------------------------------------------------------------
 n_inputs = size(U.u,2);
-[pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(n_inputs);
+%[pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(n_inputs);
+[pE,pC,D,is_logscale] = priorfun(n_inputs);
 
 % model (see spm_nlsi_GN.m)
 %--------------------------------------------------------------------------
@@ -53,6 +56,7 @@ M.dt    = 24/M.N;
 M.ns    = size(Y.y,1);
 M.TE    = TE;
 M.De    = D;
+M.delays = delays;
 M.is_logscale = is_logscale;
 
 % pack
