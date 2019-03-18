@@ -34,7 +34,7 @@ D.feedback = 2.46;
 D.transit  = 0.98;
 D.alpha    = 0.33;
 D.E0       = 0.34;
-D.epsilon  = 0.46; % 3T
+D.epsilon  = 1; 
 D.efficacy = ones(m, 1) * 0.54;
 
 % Set which parameters are log scaling parameters
@@ -42,15 +42,16 @@ is_logscale = spm_ones(D);
 
 % Set prior expectations
 pE = spm_zeros(D);
+pE.epsilon = -0.78; % 3T (Heinzle et al.)
 
 % Set prior variances
 pC = struct();
-pC.decay    = 1/32;
+pC.decay    = 1/32; 
 pC.feedback = 1/32;
 pC.transit  = 1/32;
 pC.alpha    = 1/32;
 pC.E0       = 1/32;
-pC.epsilon  = 1/32;
+pC.epsilon  = 0.06; % 3T (Heinzle et al.)
 pC.efficacy = ones(1, m) * 1/16;
 
 pC = diag(spm_vec(pC));
