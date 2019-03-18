@@ -26,4 +26,4 @@ A default model is included, specified in the following Matlab functions:
 Notes:
 - This is the same forward model as introduced in [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630) and [Stephan et al. 2007](https://doi.org/10.1016/j.neuroimage.2007.07.040).
 - The priors have been changed to be log scaling parameters that multiply default values. These default values come from Figure 7 of  [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630). The resulting prior density over parameters can be viewed with the function attention_example/view_hdm_priors.m
-- Parameters of the haemodynamic / observation models have been changed to be suitable for 3T data (parameters epsilon, r0, nu0), based on recommendations from [Heinzle et al. 2016] (https://doi.org/10.1016/j.neuroimage.2015.10.025)
+- Parameters of the haemodynamic / observation models have been changed to be suitable for 3T data (parameters epsilon, r0, nu0), based on recommendations from [Heinzle et al. 2016](https://doi.org/10.1016/j.neuroimage.2015.10.025)
