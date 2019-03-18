@@ -6,8 +6,8 @@ NB 1: This is intended for situations where only a single brain region is being 
 NB 2: This work is unpublished.
 
 ## Instructions for running the demo
-1. Download the toolbox and add the 'toolbox' directory to your Matlab path.
-2. In Matlab, enter the attention_example directory and run spm_hdm_demo.m
+1. [Download the toolbox](https://github.com/pzeidman/HDM-toolbox/archive/master.zip), unzip it and add the 'toolbox' directory to your Matlab path.
+2. In Matlab, go into the attention_example directory and run **spm_hdm_demo.m**
 
 ## Function details
 The code is arranged into a set of functions, mirroring the DCM framework:
