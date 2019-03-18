@@ -5,7 +5,7 @@ NB: This work is unpublished.
 
 ## Instructions for running the demo
 1. Download the toolbox and add the 'toolbox' directory to your Matlab path.
-2. In Matlab, enter the attention_example directory and view / run spm_hdm_demo.m
+2. In Matlab, enter the attention_example directory and run spm_hdm_demo.m
 
 ## Function details
 The code is arranged into a set of functions, mirroring the DCM framework:
