@@ -1,6 +1,8 @@
 # HDM-toolbox
 Spinoff toolbox from SPM for fitting and comparing single region haemodynamic models (HDMs).
 
+NB: This work is unpublished.
+
 ## Instructions for running the demo
 1. Download the toolbox and add the 'toolbox' directory to your Matlab path.
 2. In Matlab, enter the attention_example directory and view / run spm_hdm_demo.m
