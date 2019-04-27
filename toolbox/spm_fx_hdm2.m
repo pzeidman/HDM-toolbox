@@ -90,8 +90,8 @@ ff = (1 - (1 - E0)^(1/fin))/E0;
 % implement differential state equations
 f(1)     = efficacy'*u(:) - decay*s - feedback*(fin - 1);
 f(2)     = s/fin;
-f(3)     = (fin - fv)/(transit*v);
-f(4)     = (ff*fin - fv*q/v)/(transit*q);
+f(3)     = transit*(fin - fv)/v;
+f(4)     = transit*(ff*fin - fv*q/v)/q;
 f        = f(:);
 
 f = f(:);

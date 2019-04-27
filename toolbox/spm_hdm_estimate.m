@@ -33,3 +33,4 @@ HDM.K2 = squeeze(K2);
 HDM.y  = y;
 HDM.R  = R;
 HDM.n  = 1;
+HDM.v  = length(y);

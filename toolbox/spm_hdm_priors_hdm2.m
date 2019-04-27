@@ -29,9 +29,9 @@ function [pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(m)
 
 % set default values (to multiply by free parameters)
 D = struct();
-D.decay    = 1.54;
-D.feedback = 2.46;
-D.transit  = 0.98;
+D.decay    = 0.64;
+D.feedback = 0.41;
+D.transit  = 1.02;
 D.alpha    = 0.33;
 D.E0       = 0.34;
 D.epsilon  = 1; 
