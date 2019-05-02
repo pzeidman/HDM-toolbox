@@ -26,6 +26,15 @@ P(k) = d(k) .* exp(Ep(k));
 k = ~is_logscale;
 P(k) = d(k) .* Ep(k);
 
+% Compute explained variance (%)
+% -------------------------------------------------------------------------
+y = HDM.y;
+R = HDM.R;
+
+PSS = sum(y.^2);
+RSS = sum(R.^2);
+ev  = 100*PSS/(PSS + RSS);
+
 % Create figure
 % -------------------------------------------------------------------------
 spm_figure('GetWin','HDM Review');
@@ -37,7 +46,8 @@ cols = 3;
 subplot(rows,cols,1:3);
 plot(HDM.y); hold on;
 plot(HDM.y + HDM.R,':');
-title('Prediction and residuals','FontSize',14);
+str = sprintf('Prediction and residuals (Explained var: %2.2f%%)',ev);
+title(str,'FontSize',14);
 xlabel('Volume');
 
 % Posteriors

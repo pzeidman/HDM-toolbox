@@ -1,4 +1,4 @@
-function [pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(m)
+function [pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(m,B0)
 % returns priors for a hemodynamic dynamic causal model
 % FORMAT [pE,pC] = spm_hdm_priors(m,[h])
 % m   - number of inputs

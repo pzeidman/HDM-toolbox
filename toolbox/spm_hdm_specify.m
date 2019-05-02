@@ -5,11 +5,13 @@ function HDM = spm_hdm_specify(SPM,xY,u_idx,options)
 % xY         - VOI structure
 % u_idx      - indices of the conditions from the SPM to include
 % options.TE - echo time
+% options.B0 - field strength (default 3T)
 
 % unpack options
 %--------------------------------------------------------------------------
+try B0 = options.B0;         catch, B0 = 3; end
 try delays = options.delays; catch, delays = []; end
-try TE = options.TE; catch, TE = 0.04; end
+try TE = options.TE;         catch, TE = 0.04; end
 try priorfun = options.priorfun; catch, priorfun = @spm_hdm_priors_hdm2; end
 
 % prepare inputs
@@ -38,7 +40,7 @@ Y.X0   = xY.X0;
 %--------------------------------------------------------------------------
 n_inputs = size(U.u,2);
 %[pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(n_inputs);
-[pE,pC,D,is_logscale] = priorfun(n_inputs);
+[pE,pC,D,is_logscale] = priorfun(n_inputs,B0);
 
 % model (see spm_nlsi_GN.m)
 %--------------------------------------------------------------------------
@@ -56,6 +58,7 @@ M.dt    = 24/M.N;
 M.ns    = size(Y.y,1);
 M.TE    = TE;
 M.De    = D;
+M.B0    = B0;
 M.delays = delays;
 M.is_logscale = is_logscale;
 
