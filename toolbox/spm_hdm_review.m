@@ -64,9 +64,9 @@ end
 hold off;
 title('Expected values','FontSize',14); xlabel('Parameter');
 axis square;
-str=fieldnames(HDM.Ep);
+str = spm_fieldindices(HDM.Ep,1:numel(spm_vec(HDM.Ep)));
 for i = 1:length(str)
-    str{i} = sprintf('%d. %s', i, str{i});
+    str{i} = sprintf('%d. %s', i, strrep(str{i},'(1)',''));
 end
 set(gca,'XTick',1:length(P));
 legend(str);
