@@ -12,7 +12,10 @@ function HDM = spm_hdm_specify(SPM,xY,u_idx,options)
 try B0 = options.B0;         catch, B0 = 3; end
 try delays = options.delays; catch, delays = []; end
 try TE = options.TE;         catch, TE = 0.04; end
+try f  = options.f;          catch, f = @spm_fx_hdm2; end
+try g  = options.g;          catch, g = @spm_gx_hdm2; end
 try priorfun = options.priorfun; catch, priorfun = @spm_hdm_priors_hdm2; end
+try rescale = options.rescale; catch, rescale = false; end
 
 % prepare inputs
 %--------------------------------------------------------------------------
@@ -36,6 +39,15 @@ Y.y    = y;
 Y.dt   = SPM.xY.RT;
 Y.X0   = xY.X0;
 
+% check scaling of Y (enforcing a maximum change of 4%
+%--------------------------------------------------------------------------
+if rescale
+    scale   = max(max((Y.y))) - min(min((Y.y)));
+    scale   = 4/max(scale,4);
+    Y.y     = Y.y*scale;
+    Y.scale = scale;
+end
+
 % priors and default values
 %--------------------------------------------------------------------------
 n_inputs = size(U.u,2);
@@ -44,8 +56,8 @@ n_inputs = size(U.u,2);
 
 % model (see spm_nlsi_GN.m)
 %--------------------------------------------------------------------------
-M.f     = 'spm_fx_hdm2';
-M.g     = 'spm_gx_hdm2';
+M.f     = f;
+M.g     = g;
 M.IS    = 'spm_int';
 M.x     = [0 0 0 0]'; 
 M.pE    = pE;    
