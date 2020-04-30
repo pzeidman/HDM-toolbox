@@ -35,10 +35,11 @@ D.transit  = 1.02;
 D.alpha    = 0.33;
 D.E0       = 0.34;
 D.epsilon  = 1; 
-D.efficacy = ones(m, 1) * 0.54;
+D.efficacy = ones(m, 1);
 
 % Set which parameters are log scaling parameters
 is_logscale = spm_ones(D);
+is_logscale.efficacy = is_logscale.efficacy .* 0;
 
 % Set prior expectations
 pE = spm_zeros(D);
@@ -52,6 +53,6 @@ pC.transit  = 1/32;
 pC.alpha    = 1/32;
 pC.E0       = 1/32;
 pC.epsilon  = 0.06; % 3T (Heinzle et al.)
-pC.efficacy = ones(1, m) * 1/16;
+pC.efficacy = ones(1, m);
 
 pC = diag(spm_vec(pC));
