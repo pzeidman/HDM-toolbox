@@ -37,4 +37,5 @@ The priors were determined as follows:
 
 |Section|Parameter|Expectation|Variance|Notes|
 |-------|---------|-----------|--------|-----|
-|Neurovacular|Decay|0.64Hz|1/32|Half-life of vasoactive signal: 1/decay x log(2)|
+|Neurovascular|Decay|0.64Hz|1/32|Half-life of vasoactive signal: 1/decay x log(2)|
+|Neurovascular|Feedback|0.41|1/32|Period of vasoactive signal: 1/(2 x pi x sqrt(1/feedback))|
