@@ -35,10 +35,11 @@ Notes:
 ## Priors for the default model
 The priors on parameters are as follows:
 
-|Section|Parameter|Expectation|Variance|Notes|
+|Section|Parameter|Default|Variance|Notes|
 |-------|---------|-----------|--------|-----|
 |Neurovascular|Decay|0.64Hz|1/32|Half-life of vasoactive signal: 1/decay x log(2)|
 |Neurovascular|Feedback|0.41Hz|1/32|Period of vasoactive signal: 1/(2 x pi x sqrt(1/feedback))|
 |Vascular|Transit|1.02Hz|1/32|Vascular transit rate|
 |Vascular|Alpha|0.33|1/32|Grubb's exponent|
 |Vascular|E0|0.34|1/32|Resting oxygen extraction fraction|
+|BOLD|Epsilon|1.28 (1.5T), 0.46 (3T), 0.01 (7T)|0|Ratio of intra-to extra-vascular signal contributions|
