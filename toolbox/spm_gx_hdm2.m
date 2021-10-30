@@ -40,18 +40,38 @@ y = gx(x,u,P,M);
 function y = gx(x,u,P,M)
 % BOLD signal model
 
+if ~isfield(M,'B0') || isempty(M.B0)
+    B0 = 3;
+else
+    B0 = M.B0;
+end
+
 % Echo time (seconds)
 TE = M(1).TE;
 
 % resting venous volume
-V0 = 100*0.04;
+V0 = 100*0.04;                                
 
 % slope r0 of intravascular relaxation rate R_iv as a function of oxygen 
 % saturation Y:  R_iv = r0*[(1-Y)-(1-Y0)]
-r0 = 110; % 3T
+switch B0
+    case 0
+        r0 = 25;
+    case 1.5
+        r0 = 25;
+    case 3
+        r0 = 110;
+    case 7
+        r0 = 325;
+end
 
 % frequency offset at the outer surface of magnetized vessels
-nu0 = 28.265 * 3; % 3T
+switch B0
+    case 0
+        nu0 = 40.3;
+    otherwise
+        nu0 = 28.265 * B0;
+end
 
 % resting oxygen extraction fraction
 E0 = P.E0;

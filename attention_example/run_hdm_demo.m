@@ -10,6 +10,7 @@ TR = 3.22; % seconds
 options        = struct();
 options.TE     = 0.04;     % echo time (secs)
 options.delays = TR/2;     % slice timing (half way through the volume)
+options.B0     = 1.5;      % magnetic field strength (tesla)
 u_idx          = 1;        % vector of experimental conditions to include
 
 HDM = spm_hdm_specify(SPM,xY,u_idx,options);
