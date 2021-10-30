@@ -33,9 +33,12 @@ Notes:
 - Parameters of the haemodynamic / observation models have been changed to be suitable for 3T data (parameters epsilon, r0, nu0), based on recommendations from [Heinzle et al. 2016](https://doi.org/10.1016/j.neuroimage.2015.10.025)
 
 ## Priors for the default model
-The priors were determined as follows:
+The priors on parameters are as follows:
 
 |Section|Parameter|Expectation|Variance|Notes|
 |-------|---------|-----------|--------|-----|
 |Neurovascular|Decay|0.64Hz|1/32|Half-life of vasoactive signal: 1/decay x log(2)|
-|Neurovascular|Feedback|0.41|1/32|Period of vasoactive signal: 1/(2 x pi x sqrt(1/feedback))|
+|Neurovascular|Feedback|0.41Hz|1/32|Period of vasoactive signal: 1/(2 x pi x sqrt(1/feedback))|
+|Vascular|Transit|1.02Hz|1/32|Vascular transit rate|
+|Vascular|Alpha|0.33|1/32|Grubb's exponent|
+|Vascular|E0|0.34|1/32|Resting oxygen extraction fraction|
