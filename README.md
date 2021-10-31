@@ -41,8 +41,8 @@ The priors on parameters are as follows:
 |Vascular|Transit|1.02Hz|1/32|Vascular transit rate|
 |Vascular|Alpha|0.33|1/32|Grubb's exponent|
 |Vascular|E0|0.34|1/32|Resting oxygen extraction fraction|
-|BOLD|Epsilon|1.28 (1.5T), 0.46 (3T), 0.01 (7T)|0|Ratio of intra-to extra-vascular signal contributions|
+|BOLD|Epsilon|0.72 (1.5T), 0.44 (3T), 0 (7T)|0|Ratio of intra-to extra-vascular signal contributions|
 
 Notes:
-- The haemodynamic priors have been changed to be log scaling parameters that multiply default values. These default values come from Figure 7 of  [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630). The resulting prior density over parameters can be viewed with the function attention_example/view_hdm_priors.m . This was also done for the driving input (efficacy) parameters, thereby encforcing them to be positive. Whether this is beneficial is yet to be evaluated.
+- The haemodynamic priors have been changed to be log scaling parameters that multiply default values. These default values come from Figure 7 of  [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630). The resulting prior density over parameters can be viewed with the function attention_example/view_hdm_priors.m .
 - Parameters of the haemodynamic / observation models have been changed to be suitable for 3T data (parameters epsilon, r0, nu0), based on recommendations from [Heinzle et al. 2016](https://doi.org/10.1016/j.neuroimage.2015.10.025)
