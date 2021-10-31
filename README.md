@@ -31,7 +31,7 @@ Notes:
 - This is the same forward model as introduced in [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630) and [Stephan et al. 2007](https://doi.org/10.1016/j.neuroimage.2007.07.040).
 
 ## Priors for the default model
-The priors on parameters that can be estimatd from the data are as follows:
+The priors on parameters that can be estimated from the data are as follows:
 
 |Section|Parameter|Default|Variance|Notes|
 |-------|---------|-----------|--------|-----|
@@ -48,6 +48,7 @@ Fixed parameters are as follows:
 |Section|Parameter|Value|Notes|
 |-------|---------|-----|-----|
 |BOLD|V0|4%|Resting venous blood volume fraction|
+|BOLD|r0|25 (1.5T), 110 (3T), 325 (7T)|slope of intravascular relaxation rate against O2|
 
 Notes:
 - The haemodynamic priors have been changed to be log scaling parameters that multiply default values. These default values come from Figure 7 of  [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630). The resulting prior density over parameters can be viewed with the function attention_example/view_hdm_priors.m .
