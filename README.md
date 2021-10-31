@@ -31,17 +31,23 @@ Notes:
 - This is the same forward model as introduced in [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630) and [Stephan et al. 2007](https://doi.org/10.1016/j.neuroimage.2007.07.040).
 
 ## Priors for the default model
-The priors on parameters are as follows:
+The priors on parameters that can be estimatd from the data are as follows:
 
 |Section|Parameter|Default|Variance|Notes|
 |-------|---------|-----------|--------|-----|
-|Neural|Efficacy|0 Hz|1|Efficacy of stimuli|
+|Neurovascular|Efficacy|0Hz|1|Efficacy of stimuli|
 |Neurovascular|Decay|0.64Hz|1/32|Half-life of vasoactive signal: 1/decay x log(2)|
 |Neurovascular|Feedback|0.41Hz|1/32|Period of vasoactive signal: 1/(2 x pi x sqrt(1/feedback))|
 |Vascular|Transit|1.02Hz|1/32|Vascular transit rate|
 |Vascular|Alpha|0.33|1/32|Grubb's exponent|
 |Vascular|E0|0.34|1/32|Resting oxygen extraction fraction|
 |BOLD|Epsilon|0.72 (1.5T), 0.44 (3T), 0 (7T)|0|Ratio of intra-to extra-vascular signal contributions|
+
+Fixed parameters are as follows:
+
+|Section|Parameter|Value|Notes|
+|-------|---------|-----|-----|
+|BOLD|V0|4%|Resting venous blood volume fraction|
 
 Notes:
 - The haemodynamic priors have been changed to be log scaling parameters that multiply default values. These default values come from Figure 7 of  [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630). The resulting prior density over parameters can be viewed with the function attention_example/view_hdm_priors.m .
