@@ -19,7 +19,7 @@ The code is arranged into a set of functions, mirroring the DCM framework:
 |spm_hdm_review|GUI for inspecting an HDM|
 
 ## Default model
-A default model is included, specified in the following Matlab functions:
+A default model is included, as introduced in [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630) and [Stephan et al. 2007](https://doi.org/10.1016/j.neuroimage.2007.07.040). It is specified in the following Matlab functions:
 
 |Function|Description|
 |--------|-----------|
@@ -27,10 +27,7 @@ A default model is included, specified in the following Matlab functions:
 |spm_gx_hdm2|Observation model|
 |spm_hdm_priors_hdm2|Priors on log scaling parameters as well as the default values they scale|
 
-Notes:
-- This is the same forward model as introduced in [Friston et. al 2000](https://doi.org/10.1006/nimg.2000.0630) and [Stephan et al. 2007](https://doi.org/10.1016/j.neuroimage.2007.07.040).
-
-## Priors for the default model
+### Priors
 The priors on parameters that can be estimated from the data are as follows:
 
 |Section|Parameter|Default|Variance|Notes|
