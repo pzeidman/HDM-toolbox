@@ -77,8 +77,7 @@ end
 E0 = P.E0;
 
 % ratio of intra- to extravascular components of the gradient echo signal
-% 3T
-epsi = exp(P.epsilon);
+epsi = P.epsilon;
  
 % coefficients in BOLD signal model
 k1 = 4.3.*nu0.*E0.*TE;
