@@ -49,8 +49,8 @@ end
 % Echo time (seconds)
 TE = M(1).TE;
 
-% resting venous volume
-V0 = 100*0.04;                                
+% resting venous volume (%)
+V0 = 0.04;                              
 
 % slope r0 of intravascular relaxation rate R_iv as a function of oxygen 
 % saturation Y:  R_iv = r0*[(1-Y)-(1-Y0)]
@@ -88,7 +88,10 @@ k3 = 1 - epsi;
 % exponentiation of hemodynamic state variables
 x = exp(x); 
 
+% scale (in DCM this is rolled into V0)
+scale = 100;
+
 % BOLD signal
 v = x(3);
 q = x(4);
-y = V0*(k1.*(1 - q) + k2.*(1 - (q./v)) + k3.*(1 - v)); 
+y = scale*V0*(k1.*(1 - q) + k2.*(1 - (q./v)) + k3.*(1 - v)); 

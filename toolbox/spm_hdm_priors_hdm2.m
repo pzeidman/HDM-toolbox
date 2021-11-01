@@ -1,4 +1,4 @@
-function [pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(m,B0)
+function [pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(m,M)
 % returns priors for a hemodynamic dynamic causal model
 % FORMAT [pE,pC] = spm_hdm_priors(m,[h])
 % m   - number of inputs
@@ -26,6 +26,21 @@ function [pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(m,B0)
 % Karl Friston
 % $Id: spm_hdm_priors.m 4579 2011-12-02 20:21:07Z karl $
 
+B0 = M.B0;
+
+% Intra:extravascular signal contribution
+% Table 1B of Havlicek et al., NeuroImage, 2015
+switch B0
+    case 1.5
+        epsilon = 0.72; % mid point of 0.1263–1.3210
+    case 3
+        epsilon = 0.44; % mid point of 0.1291–0.5648
+    case 7
+        epsilon = 0;
+    otherwise
+        error('Unknown field strength');
+end
+
 % set default values (to multiply by free parameters)
 D = struct();
 D.decay    = 0.64;
@@ -33,16 +48,7 @@ D.feedback = 0.41;
 D.transit  = 1.02;
 D.alpha    = 0.33;
 D.E0       = 0.34;
-switch B0
-    case 1.5
-        D.epsilon = 1.28; 
-    case 3
-        D.epsilon = 0.46;
-    case 7
-        D.epsilon = 0.01;
-    otherwise
-        error('Unknown field strength');
-end
+D.epsilon  = epsilon;
 D.efficacy = ones(m, 1);
 
 % Set which parameters are log scaling parameters

@@ -50,8 +50,11 @@ Y.X0   = xY.X0;
 
 % priors and default values
 %--------------------------------------------------------------------------
+M = struct();
+M.TE = TE;
+M.B0 = B0;
 n_inputs = size(U.u,2);
-[pE,pC,D,is_logscale] = priorfun(n_inputs,B0);
+[pE,pC,D,is_logscale] = priorfun(n_inputs,M);
 
 % model (see spm_nlsi_GN.m)
 %--------------------------------------------------------------------------
@@ -67,9 +70,7 @@ M.l     = 1;
 M.N     = 64;
 M.dt    = 24/M.N;
 M.ns    = size(Y.y,1);
-M.TE    = TE;
 M.De    = D;
-M.B0    = B0;
 M.hE    = hE;
 M.hC    = hC;
 M.delays = delays;
