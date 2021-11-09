@@ -3,7 +3,9 @@
 % Get priors
 % -------------------------------------------------------------------------
 n_inputs = 1;
-[pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(n_inputs);
+M.B0  = 3;
+M.age = 18;
+[pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(n_inputs,M);
 
 is_logscale = logical(spm_vec(is_logscale));
 

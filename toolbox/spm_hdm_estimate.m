@@ -1,4 +1,12 @@
-function HDM = spm_hdm_estimate(HDM)
+function HDM = spm_hdm_estimate(P)
+
+% Load if filename provided
+if ischar(P)
+    HDM = load(P);
+    HDM = HDM.HDM;
+else
+    HDM = P;
+end
 
 % Unpack
 M = HDM.M;
@@ -21,7 +29,7 @@ N  = M.N;
 [K0,K1,K2] = spm_kernels(M0,M1,L1,L2,N,dt);
 [H0,H1]    = spm_kernels(M0,M1,M.N,M.dt);
 
-% save
+% store
 %--------------------------------------------------------------------------
 HDM.Ep = Ep;
 HDM.Cp = Cp;
@@ -34,3 +42,8 @@ HDM.y  = y;
 HDM.R  = R;
 HDM.n  = 1;
 HDM.v  = length(y);
+
+% save if filename was provided
+if ischar(P)
+    save(P,'HDM');
+end

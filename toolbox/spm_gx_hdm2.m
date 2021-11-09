@@ -50,7 +50,7 @@ end
 TE = M(1).TE;
 
 % resting venous volume (%)
-V0 = 0.04;                              
+V0 = P.V0;                           
 
 % slope r0 of intravascular relaxation rate R_iv as a function of oxygen 
 % saturation Y:  R_iv = r0*[(1-Y)-(1-Y0)]

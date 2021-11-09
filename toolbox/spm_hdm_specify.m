@@ -16,6 +16,8 @@ try f  = options.f;              catch, f = @spm_fx_hdm2; end
 try g  = options.g;              catch, g = @spm_gx_hdm2; end
 try hE = options.hE;             catch, hE = 6; end
 try hC = options.hC;             catch, hC = 1/128; end
+try age = options.age;           catch, age = 18; end
+try M = options.M;               catch, M = struct(); end
 try priorfun = options.priorfun; catch, priorfun = @spm_hdm_priors_hdm2; end
     
 % prepare inputs
@@ -50,9 +52,9 @@ Y.X0   = xY.X0;
 
 % priors and default values
 %--------------------------------------------------------------------------
-M = struct();
-M.TE = TE;
-M.B0 = B0;
+M.TE  = TE;
+M.B0  = B0;
+M.age = age;
 n_inputs = size(U.u,2);
 [pE,pC,D,is_logscale] = priorfun(n_inputs,M);
 
