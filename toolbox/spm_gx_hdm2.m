@@ -54,6 +54,7 @@ V0 = P.V0;
 
 % slope r0 of intravascular relaxation rate R_iv as a function of oxygen 
 % saturation Y:  R_iv = r0*[(1-Y)-(1-Y0)]
+% From: Uludag et al., 2009, Heinzle et al., 2016
 switch B0
     case 0
         r0 = 25;
@@ -66,6 +67,7 @@ switch B0
 end
 
 % frequency offset at the outer surface of magnetized vessels
+% From: Uludag et al., 2009, Heinzle et al., 2016
 switch B0
     case 0
         nu0 = 40.3;
