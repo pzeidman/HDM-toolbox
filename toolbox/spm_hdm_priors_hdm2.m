@@ -27,7 +27,6 @@ function [pE,pC,D,is_logscale] = spm_hdm_priors_hdm2(m,M)
 % $Id: spm_hdm_priors.m 4579 2011-12-02 20:21:07Z karl $
 
 B0 = M.B0;
-age = M.age;
 
 % Intra:extravascular signal contribution
 % Table 1B of Havlicek et al., NeuroImage, 2015
@@ -48,8 +47,8 @@ D.decay    = 0.64;
 D.feedback = 0.41;
 D.transit  = 1.02;
 D.alpha    = 0.33;
-D.E0       = (32.2 + 0.13 * age) / 100;
-D.V0       = (7.3 - 0.046 * age) / 100;
+D.E0       = 0.4;
+D.V0       = 0.04;
 D.epsilon  = epsilon;
 D.efficacy = ones(m, 1);
 
@@ -65,7 +64,7 @@ pC = struct();
 pC.decay    = 1/32; 
 pC.feedback = 0;
 pC.transit  = 1/32;
-pC.alpha    = 1/512;
+pC.alpha    = 0;
 pC.E0       = 0;
 pC.V0       = 0;
 pC.epsilon  = 0;
