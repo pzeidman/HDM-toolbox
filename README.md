@@ -34,17 +34,17 @@ The priors on parameters that can be estimated from the data are as follows:
 |-------|---------|-----------|--------|-----|
 |Neurovascular|Efficacy|0Hz|1|Efficacy of stimuli|
 |Neurovascular|Decay|0.64Hz|1/32|Half-life of vasoactive signal: 1/decay x log(2)|
-|Neurovascular|Feedback|0.41Hz|1/32|Period of vasoactive signal: 1/(2 x pi x sqrt(1/feedback))|
+|Neurovascular|Feedback|0.41Hz|0|Period of vasoactive signal: 1/(2 x pi x sqrt(1/feedback))|
 |Vascular|Transit|1.02Hz|1/32|Vascular transit rate|
-|Vascular|Alpha|0.33|1/32|Grubb's exponent|
-|Vascular|E0|0.34|1/32|Resting oxygen extraction fraction|
+|Vascular|Alpha|0.33|0|Grubb's exponent|
+|Vascular|E0|0.40|0|Resting oxygen extraction fraction|
+|BOLD|V0|0.04|0|Resting venous blood volume fraction|
 |BOLD|Epsilon|0.72 (1.5T), 0.44 (3T), 0 (7T)|0|Ratio of intra-to extra-vascular signal contributions|
 
 Fixed parameters are as follows:
 
 |Section|Parameter|Value|Notes|
 |-------|---------|-----|-----|
-|BOLD|V0|4%|Resting venous blood volume fraction|
 |BOLD|r0|25 (1.5T), 110 (3T), 325 (7T)|Slope of intravascular relaxation rate against O2|
 |BOLD|nu0|28.265 * B0|Frequency offset at the outer surface of magnetized vessels|
 
