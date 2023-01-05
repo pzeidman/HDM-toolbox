@@ -37,6 +37,12 @@ for i = 1:length(u_idx)
 end
 U.dt   = Sess.U(1).dt;
 
+% set default delays
+%--------------------------------------------------------------------------
+if isempty(delays)
+    delays = SPM.xY(1).RT/2;
+end
+    
 % prepare data
 %--------------------------------------------------------------------------
 if ischar(xY)
