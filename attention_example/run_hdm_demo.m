@@ -22,3 +22,5 @@ HDM = spm_hdm_estimate(HDM);
 % plot
 %--------------------------------------------------------------------------
 spm_hdm_review(HDM);
+
+save('HDM_attention.mat','HDM');
